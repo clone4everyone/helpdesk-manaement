@@ -9,6 +9,15 @@ import ProfileSettings from './ProfileSettings';
 
 const AdminDashboard = ({ currentUser, onLogout }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -28,15 +37,25 @@ const AdminDashboard = ({ currentUser, onLogout }) => {
   };
 
   return (
-    <>
-      <Header currentUser={currentUser} onLogout={onLogout} />
-      <div className="flex">
-        <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-        <main className="flex-1 p-6">
+    <div className="min-h-screen bg-gray-300">
+      <Header 
+        currentUser={currentUser} 
+        onLogout={onLogout}
+        onMenuToggle={toggleMobileMenu}
+        isMobileMenuOpen={isMobileMenuOpen}
+      />
+      <div className="flex relative">
+        <Sidebar 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab}
+          isOpen={isMobileMenuOpen}
+          onClose={closeMobileMenu}
+        />
+        <main className="flex-1 p-4 sm:p-6 lg:ml-0">
           {renderContent()}
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

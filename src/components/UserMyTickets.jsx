@@ -99,17 +99,17 @@ const UserMyTickets = ({ currentUser }) => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">List of Ticket</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">List of Ticket</h1>
 
       {/* Search Bar */}
-      <div className="flex items-center space-x-4 mb-6">
-        <div className="relative">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+        <div className="relative w-full sm:w-auto">
           <input
             type="text"
             placeholder="Find ticket"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-4 pr-10 py-2 border border-gray-300 rounded-full bg-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-400"
+            className="w-full sm:w-64 pl-4 pr-10 py-2 border border-gray-300 rounded-full bg-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-400"
           />
           <Search className="absolute right-3 top-2.5 w-5 h-5 text-gray-500" />
         </div>
@@ -130,60 +130,62 @@ const UserMyTickets = ({ currentUser }) => {
         <span className="text-gray-700">Entries</span>
       </div>
 
-      {/* Table */}
-      <div className="bg-white rounded-lg overflow-hidden shadow">
-        <table className="w-full">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Ticket No.</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Subject</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Status</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Support by</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Date</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Rate</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {filteredTickets.length === 0 ? (
+      {/* Table - Desktop */}
+      <div className="hidden md:block bg-white rounded-lg overflow-hidden shadow">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead className="bg-gray-100">
               <tr>
-                <td colSpan="6" className="px-6 py-8 text-center text-gray-500">
-                  No tickets found. Create your first ticket!
-                </td>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Ticket No.</th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Subject</th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Status</th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Support by</th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Date</th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Rate</th>
               </tr>
-            ) : (
-              filteredTickets.slice(0, entriesPerPage).map((ticket, index) => (
-                <tr key={ticket.id} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                  <td className="px-6 py-4 text-sm">
-                    <button
-                      onClick={() => handleViewTicket(ticket)}
-                      className="text-blue-600 underline hover:text-blue-800 font-medium"
-                    >
-                      {ticket.ticketNo}
-                    </button>
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{ticket.subject}</td>
-                  <td className="px-6 py-4 text-sm">
-                    <span className={`px-3 py-1 rounded text-xs font-medium ${getStatusColor(ticket.status)}`}>
-                      {ticket.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">
-                    <div className="text-center">
-                      <div className="underline">{ticket.supportBy}</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{ticket.date}</td>
-                  <td className="px-6 py-4 text-sm">
-                    {renderStars(ticket.id, ticket.rating || 0)}
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {filteredTickets.length === 0 ? (
+                <tr>
+                  <td colSpan="6" className="px-6 py-8 text-center text-gray-500">
+                    No tickets found. Create your first ticket!
                   </td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ) : (
+                filteredTickets.slice(0, entriesPerPage).map((ticket, index) => (
+                  <tr key={ticket.id} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                    <td className="px-6 py-4 text-sm">
+                      <button
+                        onClick={() => handleViewTicket(ticket)}
+                        className="text-blue-600 underline hover:text-blue-800 font-medium"
+                      >
+                        {ticket.ticketNo}
+                      </button>
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-900">{ticket.subject}</td>
+                    <td className="px-6 py-4 text-sm">
+                      <span className={`px-3 py-1 rounded text-xs font-medium ${getStatusColor(ticket.status)}`}>
+                        {ticket.status}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-900">
+                      <div className="text-center">
+                        <div className="underline">{ticket.supportBy}</div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-900">{ticket.date}</td>
+                    <td className="px-6 py-4 text-sm">
+                      {renderStars(ticket.id, ticket.rating || 0)}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
 
         {/* Pagination */}
-        <div className="flex items-center justify-between px-6 py-4 bg-gray-50">
+        <div className="flex flex-col sm:flex-row items-center justify-between px-6 py-4 bg-gray-50 space-y-4 sm:space-y-0">
           <span className="text-sm text-gray-700">
             Showing 1 to {Math.min(entriesPerPage, filteredTickets.length)} of {filteredTickets.length} entries
           </span>
@@ -205,12 +207,46 @@ const UserMyTickets = ({ currentUser }) => {
         </div>
       </div>
 
+      {/* Cards - Mobile */}
+      <div className="md:hidden space-y-4">
+        {filteredTickets.length === 0 ? (
+          <div className="bg-white rounded-lg p-6 text-center text-gray-500">
+            No tickets found. Create your first ticket!
+          </div>
+        ) : (
+          filteredTickets.slice(0, entriesPerPage).map((ticket) => (
+            <div key={ticket.id} className="bg-white rounded-lg p-4 shadow">
+              <div className="flex justify-between items-start mb-3">
+                <button
+                  onClick={() => handleViewTicket(ticket)}
+                  className="text-blue-600 underline hover:text-blue-800 font-medium text-lg"
+                >
+                  {ticket.ticketNo}
+                </button>
+                <span className={`px-2 py-1 rounded text-xs font-medium ${getStatusColor(ticket.status)}`}>
+                  {ticket.status}
+                </span>
+              </div>
+              <h3 className="font-medium text-gray-900 mb-2">{ticket.subject}</h3>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-medium">Support by:</span> {ticket.supportBy}</p>
+                <p><span className="font-medium">Date:</span> {ticket.date}</p>
+              </div>
+              <div className="mt-3">
+                <span className="text-sm font-medium text-gray-700 block mb-1">Rate:</span>
+                {renderStars(ticket.id, ticket.rating || 0)}
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+
       {/* Ticket Details Modal */}
       {showModal && selectedTicket && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg p-6 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">Ticket Details</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Ticket Details</h2>
               <button
                 onClick={closeModal}
                 className="text-gray-500 hover:text-gray-700"
@@ -220,7 +256,7 @@ const UserMyTickets = ({ currentUser }) => {
             </div>
 
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Ticket No:</label>
                   <p className="text-lg font-semibold text-blue-600">{selectedTicket.ticketNo}</p>
@@ -231,7 +267,7 @@ const UserMyTickets = ({ currentUser }) => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
                   <p className="text-gray-900">{selectedTicket.userName}</p>
@@ -254,7 +290,7 @@ const UserMyTickets = ({ currentUser }) => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Category:</label>
                   <p className="text-gray-900">{selectedTicket.category}</p>
@@ -265,7 +301,7 @@ const UserMyTickets = ({ currentUser }) => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Priority:</label>
                   <p className="text-gray-900">{selectedTicket.priority}</p>
@@ -292,7 +328,7 @@ const UserMyTickets = ({ currentUser }) => {
             <div className="flex justify-end mt-8">
               <button
                 onClick={closeModal}
-                className="bg-green-500 text-white px-6 py-2 rounded font-semibold hover:bg-green-600 transition-colors"
+                className="w-full sm:w-auto bg-green-500 text-white px-6 py-2 rounded font-semibold hover:bg-green-600 transition-colors"
               >
                 Close
               </button>

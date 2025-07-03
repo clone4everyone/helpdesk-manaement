@@ -55,21 +55,21 @@ const ProfileSettings = ({ currentUser }) => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">User Profile</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">User Profile</h1>
 
       <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl">
         {/* Header */}
-        <div className="bg-teal-400 text-white px-6 py-4">
-          <h2 className="text-xl font-semibold">Edit Account</h2>
+        <div className="bg-teal-400 text-white px-4 sm:px-6 py-4">
+          <h2 className="text-lg sm:text-xl font-semibold">Edit Account</h2>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          <div className="grid grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
               {/* Username */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   Username
                 </label>
                 <input
@@ -83,7 +83,7 @@ const ProfileSettings = ({ currentUser }) => {
 
               {/* Current Password */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   Current Password
                 </label>
                 <input
@@ -97,7 +97,7 @@ const ProfileSettings = ({ currentUser }) => {
 
               {/* New Password */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   New Password
                 </label>
                 <input
@@ -111,7 +111,7 @@ const ProfileSettings = ({ currentUser }) => {
 
               {/* Confirm Password */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   Confirm Password
                 </label>
                 <input
@@ -127,7 +127,7 @@ const ProfileSettings = ({ currentUser }) => {
             <div className="space-y-4">
               {/* Email */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   Email
                 </label>
                 <input
@@ -141,7 +141,7 @@ const ProfileSettings = ({ currentUser }) => {
 
               {/* Real Name */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   Real Name
                 </label>
                 <input
@@ -155,7 +155,7 @@ const ProfileSettings = ({ currentUser }) => {
 
               {/* Access Level */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   Access Level
                 </label>
                 <input
@@ -170,7 +170,7 @@ const ProfileSettings = ({ currentUser }) => {
 
               {/* Project Access Level */}
               <div>
-                <label className="block bg-gray-400 text-white px-4 py-2 font-medium">
+                <label className="block bg-gray-400 text-white px-4 py-2 font-medium text-sm sm:text-base">
                   Project Access Level
                 </label>
                 <input
@@ -188,7 +188,7 @@ const ProfileSettings = ({ currentUser }) => {
           <div className="pt-6">
             <button
               type="submit"
-              className="bg-teal-400 text-white px-8 py-3 rounded font-semibold hover:bg-teal-500 transition-colors"
+              className="w-full sm:w-auto bg-teal-400 text-white px-8 py-3 rounded font-semibold hover:bg-teal-500 transition-colors"
             >
               Update User
             </button>

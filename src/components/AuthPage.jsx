@@ -90,10 +90,10 @@ const AuthPage = ({ onLogin }) => {
 
   if (currentView === 'signup') {
     return (
-      <div className="min-h-screen bg-teal-400 flex items-center justify-center">
-        <div className="bg-teal-200 p-12 rounded-lg shadow-lg max-w-md w-full mx-4">
-          <h1 className="text-3xl font-bold text-black text-center mb-2">Helpdesk System</h1>
-          <p className="text-lg text-black text-center mb-8">Sign up here</p>
+      <div className="min-h-screen bg-teal-400 flex items-center justify-center px-4">
+        <div className="bg-teal-200 p-8 sm:p-12 rounded-lg shadow-lg max-w-md w-full">
+          <h1 className="text-2xl sm:text-3xl font-bold text-black text-center mb-2">Helpdesk System</h1>
+          <p className="text-base sm:text-lg text-black text-center mb-8">Sign up here</p>
           
           <form onSubmit={handleSignUp} className="space-y-4">
             <input
@@ -102,7 +102,7 @@ const AuthPage = ({ onLogin }) => {
               placeholder="Username"
               value={formData.username}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600"
+              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600 text-sm sm:text-base"
               required
             />
             
@@ -112,7 +112,7 @@ const AuthPage = ({ onLogin }) => {
               placeholder="Password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600"
+              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600 text-sm sm:text-base"
               required
             />
             
@@ -122,28 +122,28 @@ const AuthPage = ({ onLogin }) => {
               placeholder="Email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600"
+              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600 text-sm sm:text-base"
               required
             />
             
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base"
             >
               Sign Up
             </button>
           </form>
           
-          <div className="flex justify-between items-center mt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-2 sm:space-y-0">
             <button
               onClick={() => setCurrentView('forgot')}
-              className="text-red-600 hover:underline"
+              className="text-red-600 hover:underline text-sm sm:text-base"
             >
               Forgot password
             </button>
             <button
               onClick={() => setCurrentView('signin')}
-              className="text-black hover:underline font-semibold"
+              className="text-black hover:underline font-semibold text-sm sm:text-base"
             >
               Sign In
             </button>
@@ -155,9 +155,9 @@ const AuthPage = ({ onLogin }) => {
 
   if (currentView === 'forgot') {
     return (
-      <div className="min-h-screen bg-teal-400 flex items-center justify-center">
-        <div className="bg-teal-200 p-12 rounded-lg shadow-lg max-w-md w-full mx-4">
-          <p className="text-lg text-black text-center mb-8">
+      <div className="min-h-screen bg-teal-400 flex items-center justify-center px-4">
+        <div className="bg-teal-200 p-8 sm:p-12 rounded-lg shadow-lg max-w-md w-full">
+          <p className="text-base sm:text-lg text-black text-center mb-8">
             Don't worry, Enter your email below and we will send you a link to change password.
           </p>
           
@@ -168,13 +168,13 @@ const AuthPage = ({ onLogin }) => {
               placeholder="Email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600"
+              className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600 text-sm sm:text-base"
               required
             />
             
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+              className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm sm:text-base"
             >
               Submit
             </button>
@@ -182,7 +182,7 @@ const AuthPage = ({ onLogin }) => {
             <button
               type="button"
               onClick={() => setCurrentView('signin')}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base"
             >
               Sign In
             </button>
@@ -194,10 +194,10 @@ const AuthPage = ({ onLogin }) => {
 
   // Default Sign In view
   return (
-    <div className="min-h-screen bg-teal-400 flex items-center justify-center">
-      <div className="bg-teal-200 p-12 rounded-lg shadow-lg max-w-md w-full mx-4">
-        <h1 className="text-3xl font-bold text-black text-center mb-2">Helpdesk System</h1>
-        <p className="text-lg text-black text-center mb-8">Sign in here</p>
+    <div className="min-h-screen bg-teal-400 flex items-center justify-center px-4">
+      <div className="bg-teal-200 p-8 sm:p-12 rounded-lg shadow-lg max-w-md w-full">
+        <h1 className="text-2xl sm:text-3xl font-bold text-black text-center mb-2">Helpdesk System</h1>
+        <p className="text-base sm:text-lg text-black text-center mb-8">Sign in here</p>
         
         <form onSubmit={handleSignIn} className="space-y-4">
           <input
@@ -206,7 +206,7 @@ const AuthPage = ({ onLogin }) => {
             placeholder="Username"
             value={formData.username}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600"
+            className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600 text-sm sm:text-base"
             required
           />
           
@@ -216,34 +216,34 @@ const AuthPage = ({ onLogin }) => {
             placeholder="Password"
             value={formData.password}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600"
+            className="w-full px-4 py-3 border-2 border-black bg-white text-black placeholder-gray-600 text-sm sm:text-base"
             required
           />
           
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base"
           >
             Sign In
           </button>
         </form>
         
-        <div className="flex justify-between items-center mt-6">
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-2 sm:space-y-0">
           <button
             onClick={() => setCurrentView('forgot')}
-            className="text-red-600 hover:underline"
+            className="text-red-600 hover:underline text-sm sm:text-base"
           >
             Forgot password
           </button>
           <button
             onClick={() => setCurrentView('signup')}
-            className="text-black hover:underline font-semibold"
+            className="text-black hover:underline font-semibold text-sm sm:text-base"
           >
             Sign Up
           </button>
         </div>
         
-        <div className="mt-4 text-center text-sm text-gray-600">
+        <div className="mt-4 text-center text-xs sm:text-sm text-gray-600">
           <p>Demo: admin/admin (Admin) or create new user account</p>
         </div>
       </div>

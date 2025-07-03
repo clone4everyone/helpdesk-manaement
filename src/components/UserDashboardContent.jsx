@@ -30,14 +30,14 @@ const UserDashboardContent = ({ currentUser }) => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
       
       {/* Stats Cards */}
-      <div className="grid grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className={`${stat.color} rounded-lg p-6 text-white`}>
-            <h3 className="text-sm font-medium mb-2">{stat.title}</h3>
-            <p className={`text-4xl font-bold ${stat.textColor}`}>{stat.value}</p>
+          <div key={index} className={`${stat.color} rounded-lg p-4 sm:p-6 text-white`}>
+            <h3 className="text-xs sm:text-sm font-medium mb-2">{stat.title}</h3>
+            <p className={`text-2xl sm:text-4xl font-bold ${stat.textColor}`}>{stat.value}</p>
           </div>
         ))}
       </div>

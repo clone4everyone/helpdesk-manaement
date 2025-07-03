@@ -30,52 +30,52 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
       
       {/* Stats Cards */}
-      <div className="grid grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className={`${stat.color} rounded-lg p-6 text-white`}>
-            <h3 className="text-sm font-medium mb-2">{stat.title}</h3>
-            <p className={`text-4xl font-bold ${stat.textColor}`}>{stat.value}</p>
+          <div key={index} className={`${stat.color} rounded-lg p-4 sm:p-6 text-white`}>
+            <h3 className="text-xs sm:text-sm font-medium mb-2">{stat.title}</h3>
+            <p className={`text-2xl sm:text-4xl font-bold ${stat.textColor}`}>{stat.value}</p>
           </div>
         ))}
       </div>
 
       {/* Bottom Section */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Chart Section */}
-        <div className="bg-teal-400 rounded-lg p-8 flex items-center justify-center">
-          <BarChart3 className="w-32 h-32 text-blue-900" />
+        <div className="bg-teal-400 rounded-lg p-6 sm:p-8 flex items-center justify-center">
+          <BarChart3 className="w-24 h-24 sm:w-32 sm:h-32 text-blue-900" />
         </div>
 
         {/* Right Side Cards */}
         <div className="space-y-4">
           {/* Team Stats */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-teal-400 rounded-lg p-6 text-center">
-              <Headphones className="w-12 h-12 mx-auto mb-2 text-black" />
-              <p className="text-2xl font-bold text-black">3</p>
-              <p className="text-sm text-black font-medium">Technical Supports</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-teal-400 rounded-lg p-4 sm:p-6 text-center">
+              <Headphones className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-black" />
+              <p className="text-xl sm:text-2xl font-bold text-black">3</p>
+              <p className="text-xs sm:text-sm text-black font-medium">Technical Supports</p>
             </div>
-            <div className="bg-teal-400 rounded-lg p-6 text-center">
+            <div className="bg-teal-400 rounded-lg p-4 sm:p-6 text-center">
               <div className="relative">
-                <Headphones className="w-12 h-12 mx-auto mb-2 text-black" />
-                <Wrench className="w-4 h-4 absolute top-0 right-6 text-black" />
+                <Headphones className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-black" />
+                <Wrench className="w-3 h-3 sm:w-4 sm:h-4 absolute top-0 right-6 sm:right-6 text-black" />
               </div>
-              <p className="text-2xl font-bold text-black">4</p>
-              <p className="text-sm text-black font-medium">Operation Team</p>
+              <p className="text-xl sm:text-2xl font-bold text-black">4</p>
+              <p className="text-xs sm:text-sm text-black font-medium">Operation Team</p>
             </div>
           </div>
 
           {/* Customer Feedback */}
-          <div className="bg-teal-400 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-black mb-3">Customer Feedback</h3>
+          <div className="bg-teal-400 rounded-lg p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-black mb-3">Customer Feedback</h3>
             <div className="flex justify-center space-x-1">
               {[1, 2, 3, 4].map((star) => (
-                <Star key={star} className="w-8 h-8 text-yellow-400 fill-current" />
+                <Star key={star} className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 fill-current" />
               ))}
-              <Star className="w-8 h-8 text-yellow-400" />
+              <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
             </div>
           </div>
         </div>

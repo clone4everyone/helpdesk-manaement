@@ -86,10 +86,10 @@ const UserNewTicket = ({ currentUser }) => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Create New Ticket</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Create New Ticket</h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left Column */}
           <div className="space-y-4">
             <div>
@@ -203,7 +203,7 @@ const UserNewTicket = ({ currentUser }) => {
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
-                  rows="8"
+                  rows="6"
                   className="w-full px-4 py-2 bg-gray-200 border border-gray-300 rounded resize-none"
                   placeholder="Describe your issue in detail..."
                   required
@@ -234,7 +234,7 @@ const UserNewTicket = ({ currentUser }) => {
         </div>
 
         {/* reCAPTCHA placeholder */}
-        <div className="flex items-center space-x-4">
+        <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <div className="border-2 border-gray-300 p-4 bg-gray-100 rounded">
             <div className="flex items-center space-x-3">
               <input type="checkbox" required className="w-6 h-6" />
@@ -249,7 +249,7 @@ const UserNewTicket = ({ currentUser }) => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-teal-400 text-white px-8 py-3 rounded font-semibold hover:bg-teal-500 transition-colors disabled:opacity-50"
+            className="w-full sm:w-auto bg-teal-400 text-white px-8 py-3 rounded font-semibold hover:bg-teal-500 transition-colors disabled:opacity-50"
           >
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
